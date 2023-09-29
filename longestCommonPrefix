@@ -1,0 +1,21 @@
+// This code contains the class and methode which return the longest common prefix... ('~')
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        int len=0;
+         Arrays.sort(strs);
+        for(int ji=0,j=0;ji<strs[0].length();++ji){
+            int flag=0;
+            for(int i=1;i<strs.length;++i){
+                if(strs[0].charAt(j)!=strs[i].charAt(j)){
+                    flag=1;
+                    break;
+                }
+                if(i==strs.length-1)++j;
+            }
+            if(flag==0)++len;
+            else break;
+        }
+                return strs[0].substring(0,len);
+    }
+}
